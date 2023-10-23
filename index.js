@@ -2,8 +2,11 @@ const express = require('express');
 const fs = require('fs'); // Menambahkan modul fs untuk membaca file
 const app = express();
 const port = 3000;
+app.use(express.json());
+const mainRouter = require('./routes/index')
 
 let products = [];
+app.use('/', mainRouter);
 
 fs.readFile('products.json', 'utf8', (err, data) => {
     if (err) {
@@ -13,7 +16,7 @@ fs.readFile('products.json', 'utf8', (err, data) => {
     products = JSON.parse(data);
 });
 
-app.get('/', (req, res) => {
+app.get('/products', (req, res) => {
     res.send(products);
 });
 
