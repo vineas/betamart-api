@@ -1,6 +1,4 @@
-# Nama Proyek
-
-Deskripsi singkat proyek Anda di sini.
+# Betamart
 
 ## Instalasi
 
